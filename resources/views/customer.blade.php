@@ -13,9 +13,9 @@
             <form id="formOrder">
                 <div class="mt-3">
                     <select name="orderType" id="orderType" class="form-control" onchange="onchange_order()">
-                        <option disabled hidden selected>Plese Select Your Order Type</option>
-                        <option value="plain">Plain IceCream</option>
-                        <option value="with Toppings">IceCream with Toppings</option>
+                        <option disabled hidden selected>Please Select Your Order Type</option>
+                        <option value="plain">Plain Ice Cream</option>
+                        <option value="with Toppings">Ice Cream with Toppings</option>
                     </select>
                 </div>
                 <div class="mt-3" id="divToppings">
@@ -33,7 +33,7 @@
                     <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Your Order Details</h5>
-                        <p>You have just ordered plain ice cream</p>
+                        {{-- <p>You have just ordered plain ice cream</p> --}}
                         <p>You have ordered ice cream with your favourite toppings </p>
                         <button class="btn btn-primary mb-4" onclick="onclick_print_details();">Print</button>
                     </div>

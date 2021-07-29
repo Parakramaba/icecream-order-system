@@ -14,7 +14,7 @@ class CustomerController extends Controller
         return view('customer', compact('toppings'));
     }
 
-    public function createOrder(Request $request)
+    public function placeOrder(Request $request)
     {
         return response()->json(['status'=>'success', 'msg'=>'Your order have successfully placed.']);
     }

@@ -23,7 +23,7 @@ onclick_place_order = () => {
     //Customer controller
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: "{{ route('add.order') }}",
+        url: "{{ route('place.order') }}",
         type: 'post',
         data: formData,
         processData: false,

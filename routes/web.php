@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // CUSTOMER 
 Route::get('/customer',[App\Http\Controllers\CustomerController::class, 'index'])->name('customer.home');
-Route::post('/order/create',[App\Http\Controllers\CustomerController::class, 'createOrder'])->name('create.order');
+Route::post('/order/create',[App\Http\Controllers\CustomerController::class, 'placeOrder'])->name('place.order');
 // /CUSTOMER
 
 // VENDOR
