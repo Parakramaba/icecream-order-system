@@ -13,4 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// CUSTOMER 
+Route::get('/customer',[App\Http\Controllers\CustomerController::class, 'index'])->name('customer.home');
+Route::post('/order/create',[App\Http\Controllers\CustomerController::class, 'createOrder'])->name('create.order');
+// /CUSTOMER
+
+// VENDOR
+Route::get('/vendor',[App\Http\Controllers\VendorController::class, 'index'])->name('vendor.home');
+Route::post('/vendor/add/topping',[App\Http\Controllers\VendorController::class, 'addTopping'])->name('vendor.add.topping');
+// /VENDOR
