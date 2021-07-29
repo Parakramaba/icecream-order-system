@@ -5,7 +5,7 @@ onchange_order = () => {
     //Get the selected order type
     let  orderType = $('#orderType').val();
 
-    if(orderType == 'with Toppings') {
+    if(orderType == '2') {
         $('#divToppings').show();
     }
 
@@ -30,10 +30,15 @@ onclick_place_order = () => {
         contentType: false,
         beforeSend: function(){$('#btnPlaceOrder').attr('disabled','disabled');},
         success: function(data) {
-            
+            console.log('Success in place order ajax.');
+            $('#btnPlaceOrder').removeAttr('disabled','disabled');
+            if(data['status'] == 'success'){
+                console.log('Success in place order.');
+            }
         },
         error: function(err) {
-
+            console.log('Error in place order ajax.');
+            $('#btnPlaceOrder').removeAttr('disabled','disabled');
         }
 
     });

@@ -12,10 +12,10 @@
             <h3 class="font-weight-bold">Make Your Order</h3>
             <form id="formOrder">
                 <div class="mt-3">
-                    <select name="orderType" id="orderType" class="form-control" onchange="onchange_order()">
+                    <select name="orderType" id="orderType" class="form-control" onchange="onchange_order();">
                         <option disabled hidden selected>Please Select Your Order Type</option>
-                        <option value="plain">Plain Ice Cream</option>
-                        <option value="with Toppings">Ice Cream with Toppings</option>
+                        <option value="1">Plain Ice Cream</option>
+                        <option value="2">Ice Cream with Toppings</option>
                     </select>
                 </div>
                 <div class="mt-3" id="divToppings">

@@ -18,5 +18,5 @@
     @yield('content')
 </body>
 
-<footer class="bg-dark text-center text-secondary">Copyright 2021 @ IceCreamDream</footer>
+<footer class="bg-dark text-center text-secondary">Copyright 2021 @ IceCreamFavour</footer>
 </html>
