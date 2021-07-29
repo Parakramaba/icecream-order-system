@@ -13,8 +13,19 @@ class VendorController extends Controller
         return view('vendor', compact('toppings'));
     }
 
+    // ADD A NEW TOPPING
     public function addTopping(Request $request)
     {
-        return response()->json(['status'=>'success']);
+        if($request->ajax()):
+            $topping = new Topping();
+            $topping->name = $request->toppingName;
+            $topping->price = $request->toppingPrice;
+
+            if($topping->save()):
+                return response()->json(['status'=>'success']);
+            endif;
+        endif;
+        return response()->json(['error'=>'error']);
     }
+    // /ADD A NEW TOPPING
 }

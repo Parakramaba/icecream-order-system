@@ -17,16 +17,17 @@
             beforeSend: function(){$('#btnAddTopping').attr('disabled','disabled');},
             success: function(data) {
                 console.log('Success in add topping ajax.');
+                $('#btnAddTopping').removeAttr('disabled','disabled');
                 if(data['status'] == 'success')
                 {
                     console.log('Success in add topping.');
-                    
+                    location.reload();
                 }
             },
             error: function(err) {
                 console.log('Error in add topping ajax.');
+                $('#btnAddTopping').removeAttr('disabled','disabled');
             }
-
         });
     }
     // / ADD NEW TOPPING
