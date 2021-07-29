@@ -27,14 +27,13 @@
                 <button type="button" class="btn btn-primary mt-4 mb-4" id="btnPlaceOrder" onclick="onclick_place_order();">Place Order</button>
             </form>
         </div>
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-5" id="divOrderDetails">
             <div class="row">
                 <div class="col-md-6 mb-5">
                     <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Your Order Details</h5>
-                        {{-- <p>You have just ordered plain ice cream</p> --}}
-                        <p>You have ordered ice cream with your favourite toppings </p>
+                        <p></p>
                         <button class="btn btn-primary mb-4" onclick="onclick_print_details();">Print</button>
                     </div>
                     </div>

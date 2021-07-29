@@ -34,6 +34,11 @@ onclick_place_order = () => {
             $('#btnPlaceOrder').removeAttr('disabled','disabled');
             if(data['status'] == 'success'){
                 console.log('Success in place order.');
+                //$("#formOrder").load(location.href + " #formOrder");
+                // if(data['order']['toppings'] == null)
+                // {
+
+                // }
             }
         },
         error: function(err) {
