@@ -1,0 +1,25 @@
+:root{
+    --white: #fff;
+    --black: #000;
+
+    --side-bar-text-color: #ebebeb;
+    --side-bar-active-bg-color: #212529;
+    --side-bar-hover-bg-color: #6c757d;
+}
+
+/* SIDE BAR */
+.sidebar ul li.active {
+    background-color: var(--side-bar-active-bg-color);
+    color: var(--side-bar-text-color);
+}
+
+.sidebar ul li:hover {
+    background-color: var(--side-bar-hover-bg-color);
+    padding-left: 1rem;
+}
+
+.sidebar .nav-link {
+    color: var(--side-bar-text-color);
+    font-size: 20px;
+}
+/* /SIDE BAR */

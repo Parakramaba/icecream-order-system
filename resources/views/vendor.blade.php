@@ -1,12 +1,12 @@
-@extends('layouts.layout')
+@extends('layouts.vendor')
 
 @section('content')
 
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <div class="col-12 border">
             <div class="row">
-                <h3 class="text-weight-bold">Add New Topping</h3>
+                <h3 class="text-weight-bold pt-3">Add New Topping</h3>
                 <form id="formTopping">
                     <div class="col mt-4">
                         <label for="toppingName">Name</label>
@@ -20,26 +20,29 @@
                 </form>
             </div>
         </div>
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-5 border">
             <div class="row">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($toppings as $topping)
+                <h3 class="text-weight-bold pt-3">Toppings</h3>
+                <div class="px-2">
+                    <table class="table table-striped px-4">
+                        <thead>
                             <tr>
-                                <td>{{ $topping->id }}</td>
-                                <td>{{ $topping->name }}</td>
-                                <td>{{ $topping->price }}LKR</td>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($toppings as $topping)
+                                <tr>
+                                    <td>{{ $topping->id }}</td>
+                                    <td>{{ $topping->name }}</td>
+                                    <td>{{ $topping->price }}LKR</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
