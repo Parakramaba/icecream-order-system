@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-// Show and hide toppings list according to order type
+// SHOW AND HIDE TOPPINGS LIST ACCORDING TO ORDER TYPE
 onchange_order = () => {
     //Get the selected order type
     let  orderType = $('#orderType').val();
@@ -13,14 +13,15 @@ onchange_order = () => {
         $('#divToppings').hide();
     }
 }
+// /SHOW AND HIDE TOPPINGS LIST ACCORDING TO ORDER TYPE
 
 // CREATE NEW ORDER
 onclick_place_order = () => {
 
-    //Form payload
+    // Form payload
     let formData = new FormData($('#formOrder')[0])
 
-    //Customer controller
+    // Customer controller
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: "{{ route('place.order') }}",
@@ -34,11 +35,28 @@ onclick_place_order = () => {
             $('#btnPlaceOrder').removeAttr('disabled','disabled');
             if(data['status'] == 'success'){
                 console.log('Success in place order.');
-                //$("#formOrder").load(location.href + " #formOrder");
-                // if(data['order']['toppings'] == null)
-                // {
+                // Reset the form
+                $('#formOrder').trigger('reset');
+                $('#divToppings').hide();
 
-                // }
+                // Fetch order details to order details card,then show
+                $('#spanName').html(data['order']['first_name'] + ' ' + data['order']['last_name']);
+                $('#spanTel').html(data['order']['telephone']);
+                if(data['order']['type'] == '1' && data['order']['toppings'] == null) {
+                    $('#spanOrderType').html('Normal Ice Cream');
+                    $('#trAddedToppings').hide();
+                }
+                else if(data['order']['type'] == '2' && data['order']['toppings'] != null) {
+                    $('#spanOrderType').html('Ice Cream with Toppings');
+                    // Remove previous toppings and add newly selected toppings
+                    $('#divAddedToppings').find('div').remove();
+                    $.each(data['order']['toppings'], function(key, value) {
+                        $('#divAddedToppings').append("<div class='col-lg-4 col-md-6'><li>"+value+"</li></div>");
+                    });
+                    $('#trAddedToppings').show();
+                }
+                $('#spanPrice').html(data['totalPrice']+'LKR');
+                $('#divOrderDetails').show();
             }
         },
         error: function(err) {
@@ -49,5 +67,5 @@ onclick_place_order = () => {
     });
 
 }
-// / CREATE NEW ORDER
+// /CREATE NEW ORDER
 </script>

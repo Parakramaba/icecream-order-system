@@ -19,11 +19,23 @@ class CustomerController extends Controller
     {
         if($request->ajax()):
             $order = new Order();
+            $order->first_name = $request->firstName;
+            $order->last_name = $request->lastName;
+            $order->telephone = $request->telNo;
             $order->type = $request->orderType;
             $order->toppings = $request->toppings;
 
+            // Get the total price with added toppings
+            $totalPrice = 100;
+            if($request->toppings != null):
+                foreach($request->toppings as $topping):
+                    $totalPrice = $totalPrice + Topping::where('name', $topping)->first()->price;
+                endforeach;
+            endif;
+
+            // Save order details
             if($order->save()):
-                return response()->json(['status'=>'success', 'msg'=>'Your order have successfully placed.', 'order'=>$order]);
+                return response()->json(['status'=>'success', 'msg'=>'Your order have successfully placed.', 'order'=>$order, 'totalPrice'=>$totalPrice]);
             endif;
         endif;
         return response()->json(['error'=>'error']);
