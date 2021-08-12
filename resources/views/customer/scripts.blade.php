@@ -17,6 +17,10 @@ onchange_order = () => {
 
 // CREATE NEW ORDER
 onclick_place_order = () => {
+    // Remove previous validation error messages
+    $('.form-control').removeClass('is-invalid');
+    $('.invalid-feedback').html('');
+    $('.invalid-feedback').hide();
 
     // Form payload
     let formData = new FormData($('#formOrder')[0])
@@ -31,10 +35,35 @@ onclick_place_order = () => {
         contentType: false,
         beforeSend: function(){$('#btnPlaceOrder').attr('disabled','disabled');},
         success: function(data) {
-            console.log('Success in place order ajax.');
+            console.log('Success in place order ajax');
             $('#btnPlaceOrder').removeAttr('disabled','disabled');
-            if(data['status'] == 'success'){
-                console.log('Success in place order.');
+            // Form input validation
+            if(data['errors']) {
+                console.log('Errors in validating data')
+                $.each(data['errors'], function(key, value){
+                    $('#error-'+key).show();
+                    $('#'+key).addClass('is-invalid');
+                    $('#error-'+key).append('<strong>'+value+'</strong>');
+                });
+            }
+            // Topping selecting validation
+            else if(data['status'] == 'topping_error' || data['status'] == 'invalid_topping') {
+                console.log('Errors in selecting toppings');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: data['msg'],
+                })
+            }
+            // Success
+            else if(data['status'] == 'success'){
+                console.log('Success in place order');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Order Placed!',
+                    text: 'Your order has been placed',
+                    timer: 3000
+                })
                 // Reset the form
                 $('#formOrder').trigger('reset');
                 $('#divToppings').hide();
@@ -60,12 +89,10 @@ onclick_place_order = () => {
             }
         },
         error: function(err) {
-            console.log('Error in place order ajax.');
+            console.log('Error in place order ajax');
             $('#btnPlaceOrder').removeAttr('disabled','disabled');
         }
-
     });
-
 }
 // /CREATE NEW ORDER
 </script>

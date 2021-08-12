@@ -45,11 +45,11 @@
                                 <div class="row mt-3">
                                     @foreach ($toppings as $topping)
                                     <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <input type="checkbox" class="" name="toppings[]" id="toppings" value="{{ $topping->name }}"> {{ $topping->name }} ({{ $topping->price }}LKR)
+                                        <input type="checkbox" class="" name="toppings[]" value="{{ $topping->name }}"> {{ $topping->name }} ({{ $topping->price }}LKR)
                                     </div>
-                                @endforeach
+                                    @endforeach
                                 </div>
-                                <span class="invalid-feedback" id="error-toppings" role="alert"></span>
+                                {{-- <span class="invalid-feedback" id="error-toppings" role="alert"></span> --}}
                             </div>
                         </div>
                     </form>
