@@ -24,8 +24,8 @@
         <header>
             <div class="container">
                 <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link bg-dark text-light mt-2 text-uppercase" href="{{ route('vendor.home') }}"><i class="fas fa-user"></i> Vendor Sign In</a>
+                    <li class="nav-item mt-2">
+                        <a class="nav-link bg-dark text-light text-uppercase" href="{{ route('vendor.home') }}"><i class="fas fa-user"></i> Vendor Sign In</a>
                     </li>
                 </ul>
                 <div class="justify-content-center mt-2">
@@ -51,7 +51,7 @@
         {{-- /Header --}}
 
         {{-- Content --}}
-        <div class="mt-5">
+        <div>
             @yield('content')
         </div>
         {{-- /Content --}}
