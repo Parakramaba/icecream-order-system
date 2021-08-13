@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="d-grid col-4 mx-auto my-4">
+                    <div class="d-grid col-md-4 mx-auto my-4">
                         <button type="button"  class="btn btn-primary" id="btnPlaceOrder" onclick="onclick_place_order();">Place Order</button>
                     </div>
                 </div>
