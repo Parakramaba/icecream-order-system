@@ -64,7 +64,7 @@
             <a href="" class="text-dark m-2" style="font-size: 35px;"><i class="fab fa-twitter-square"></i></a>
             <a href="" class="text-dark m-2" style="font-size: 35px;"><i class="fab fa-viber"></i></a>
         </div>
-        Copyright &copy; 2021 @ IceCreamFavour
+        Copyright &copy; 2021 @ IceCreamFavours
     </footer>
     {{-- /Footer --}}
 </body>
