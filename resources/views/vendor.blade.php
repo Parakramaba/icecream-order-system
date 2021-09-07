@@ -26,7 +26,7 @@
             <div class="row">
                 <h3 class="text-weight-bold pt-3">Toppings</h3>
                 <div class="px-3">
-                    <table class="table table-striped">
+                    <table class="table" id="tableToppings">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -36,7 +36,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($toppings as $topping)
+                            {{-- @foreach ($toppings as $topping)
                                 <tr>
                                     <td>{{ $topping->id }}</td>
                                     <td>{{ $topping->name }}</td>
@@ -48,7 +48,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                     </table>
                 </div>

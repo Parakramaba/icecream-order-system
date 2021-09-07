@@ -21,4 +21,5 @@ Route::post('/order/create',[App\Http\Controllers\CustomerController::class, 'pl
 // VENDOR
 Route::get('/vendor',[App\Http\Controllers\VendorController::class, 'index'])->name('vendor.home');
 Route::post('/vendor/add/topping',[App\Http\Controllers\VendorController::class, 'addTopping'])->name('vendor.add.topping');
+Route::get('/vendor/toppings/table', [App\Http\Controllers\VendorController::class, 'getToppingsList'])->name('vendor.toppings.table');
 // /VENDOR

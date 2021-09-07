@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Topping;
+use Yajra\Datatables\Datatables;
 
 class VendorController extends Controller
 {
@@ -28,4 +29,17 @@ class VendorController extends Controller
         return response()->json(['error'=>'error']);
     }
     // /ADD A NEW TOPPING
+
+    // GET TOPPINGS LIST
+    public function getToppingsList(Request $request)
+    {
+        if($request->ajax()):
+            $data = Topping::get();
+
+            return Datatables::of($data)
+            ->rawColumns(['action'])
+            ->make(true);
+        endif;   
+    }
+    // /GET TOPPINGS LIST
 }
