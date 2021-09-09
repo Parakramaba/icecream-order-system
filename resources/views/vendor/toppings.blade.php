@@ -2,6 +2,14 @@
 
 @section('content')
 
+<script>
+    // ACTIVE NAVIGATION ENTRY
+    $(document).ready(function ($) {
+        $('#toppings').addClass("active");
+        $(document).attr("title", "Ice Cream Flavours-Vendor-Toppings");
+    });
+</script>
+
 <div class="container my-5">
     <div class="row">
         <div class="col-12 border rounded border-3">
@@ -55,7 +63,7 @@
             </div>
         </div>
     </div>
-    @include('vendor.scripts')
+    @include('vendor.toppings.scripts')
 </div>
     
 @endsection

@@ -13,7 +13,7 @@ class CustomerController extends Controller
     public function index()
     {
         $toppings = Topping::orderby('id')->get();
-        return view('customer', compact('toppings'));
+        return view('customer.customer', compact('toppings'));
     }
 
     // PLACE AN ORDER

@@ -23,7 +23,7 @@ onclick_place_order = () => {
     $('.invalid-feedback').hide();
 
     // Form payload
-    let formData = new FormData($('#formOrder')[0])
+    let formData = new FormData($('#formOrder')[0]);
 
     // Customer controller
     $.ajax({

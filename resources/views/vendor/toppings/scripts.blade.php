@@ -39,7 +39,7 @@
                         let btnGroup = '<div class="btn-group">'+
                                             '<button type="button" class="btn btn-outline-warning" id="btnInvokeEditToppingModal-'+data+'"><i class="fas fa-edit"></i></button>'+
                                             '<button type="button" class="btn btn-outline-danger" id="btnDeleteTopping-'+data+'"><i class="fas fa-trash-alt"></i></button>'+
-                                        '</div>'
+                                        '</div>';
                             return btnGroup;
                     }
 

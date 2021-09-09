@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ice Cream Flavours-Vendor</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="keyword" content="Ice Cream, Ice Cream Order, Chocolate, Topping" />
+    <meta name="keyword" content="Ice Cream, Order, Chocolate, Topping" />
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
@@ -45,9 +45,9 @@
                     {{-- Side Bar --}}
                     <div class="col-2 bg-dark bg-gradient bg-opacity-90 sidebar">
                         <ul class="nav flex-column mt-5">
-                            <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">Orders</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">Toppings</a></li>
+                            <li class="nav-item" id="home"><a class="nav-link" href="{{ route('vendor.home') }}">Home</a></li>
+                            <li class="nav-item" id="orders"><a class="nav-link" href="">Orders</a></li>
+                            <li class="nav-item" id="toppings"><a class="nav-link" href="{{ route('vendor.toppings') }}">Toppings</a></li>
                         </ul>
                     </div>
                     {{-- /Side Bar --}}

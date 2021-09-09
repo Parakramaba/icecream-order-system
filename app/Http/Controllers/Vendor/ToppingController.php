@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Vendor;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Topping;
 use Yajra\Datatables\Datatables;
 
-class VendorController extends Controller
+class ToppingController extends Controller
 {
     public function index()
     {
         $toppings = Topping::orderby('id')->get();
-        return view('vendor', compact('toppings'));
+        return view('vendor.toppings', compact('toppings'));
     }
 
     // ADD A NEW TOPPING
