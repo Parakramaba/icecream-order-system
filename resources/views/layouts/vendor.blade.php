@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ice Cream Flavours-Vendor</title>
+    <title>Ice Cream Flavours | Vendor</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="keyword" content="Ice Cream, Order, Chocolate, Topping" />
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

@@ -6,7 +6,7 @@
     // ACTIVE NAVIGATION ENTRY
     $(document).ready(function ($) {
         $('#toppings').addClass("active");
-        $(document).attr("title", "Ice Cream Flavours-Vendor-Toppings");
+        $(document).attr("title", "Ice Cream Flavours | Vendor-Handling the toppings");
     });
 </script>
 
@@ -27,7 +27,7 @@
                 </div>
             </form>
             <div class="d-grid col-md-4  mx-auto my-2">
-                <button type="button" class="btn btn-primary mt-4 mb-4" id="btnAddTopping" onclick="onclick_add_topping();">Add Topping</button>
+                <button type="button" class="btn btn-primary mt-4 mb-4" id="btnAddTopping" onclick="onclickAddTopping();">Add Topping</button>
             </div>
         </div>
         <div class="col-12 mt-5 border rounded border-3">
