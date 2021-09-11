@@ -54,7 +54,7 @@
                         </div>
                     </form>
                     <div class="d-grid col-md-4 mx-auto my-4">
-                        <button type="button"  class="btn btn-primary" id="btnPlaceOrder" onclick="onclick_place_order();">Place Order</button>
+                        <button type="button"  class="btn btn-outline-primary" id="btnPlaceOrder" onclick="onclick_place_order();">Place Order</button>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                         </table>
                     </div>
                     <div class="d-grid col-4 mx-auto my-4">
-                        <button class="btn btn-primary" id="btnPrintDetails">Print</button>
+                        <button class="btn btn-outline-primary" id="btnPrintDetails">Print</button>
                     </div>
                 </div>
             </div>

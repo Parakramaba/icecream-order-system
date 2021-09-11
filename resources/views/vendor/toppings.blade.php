@@ -27,7 +27,7 @@
                 </div>
             </form>
             <div class="d-grid col-md-4  mx-auto my-2">
-                <button type="button" class="btn btn-primary mt-4 mb-4" id="btnAddTopping" onclick="onclickAddTopping();">Add Topping</button>
+                <button type="button" class="btn btn-outline-primary my-4" id="btnAddTopping" onclick="onclickAddTopping();">Add Topping</button>
             </div>
         </div>
         <div class="col-12 mt-5 border rounded border-3">
