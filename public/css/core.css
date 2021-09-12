@@ -2,19 +2,17 @@
     --white: #fff;
     --black: #000;
 
-    --btn-primary-color: #232446;
+    --btn-primary-color: #04062e;
 }
 
 /* BUTTONS */
 .btn-outline-primary {
     color: var(--btn-primary-color);
     border-color: var(--btn-primary-color);
-    font-weight: bold;
 }
 
 .btn-outline-primary:hover {
     background-color: var(--btn-primary-color) ;
     border-color: var(--btn-primary-color);
-    font-weight: bold;
 }
 /* /BUTTONS */

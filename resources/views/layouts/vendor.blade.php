@@ -26,11 +26,21 @@
     <link rel="stylesheet" href="{{ asset('css/vendor.css') }}" />
     <!-- /CSS -->
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/core.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.js') }}"></script>
+    <!-- /Scripts -->
+
 
 </head>
 <body>
     {{-- Header --}}
-    <header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid justify-content-end">
+            <button type="button" class="btn btn-outline-primary"><a href="" class="nav-link text-light text-uppercase"><i class="fas fa-sign-out-alt"></i> Sign Out</a></button>
+        </div>
+    </nav>
+    {{-- <header>
         <div class="container-fluid bg-dark px-4 py-2">
             <ul class="nav nav-pills justify-content-end">
                 <li class="nav-item">
@@ -38,7 +48,7 @@
                 </li>
             </ul>
         </div>
-    </header>
+    </header> --}}
     {{-- /Header --}}
 
     <div class="container-fluid">

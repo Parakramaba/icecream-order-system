@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="{{ asset('css/core.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/customer.css') }}" />
     <!-- /CSS -->
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/core.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.js') }}"></script>
+    <!-- /Scripts -->
     
 </head>
 
@@ -27,12 +32,13 @@
         {{-- Header --}}
         <header>
             <div class="container">
-                <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mt-2">
-                        <a class="nav-link bg-dark text-light text-uppercase" href="{{ route('vendor.home') }}"><i class="fas fa-user"></i> Vendor Sign In</a>
-                    </li>
-                </ul>
-                <div class="justify-content-center mt-2">
+                <nav class="navbar navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <a href="{{ route('customer.home') }}" class="navbar-brand">IceCreamFlavours</a>
+                        <button type="button" class="btn btn-outline-primary"><a class="nav-link text-light text-uppercase" href="{{ route('vendor.home') }}"><i class="fas fa-user"></i> Vendor Sign In</a></button>
+                    </div>
+                </nav>
+                <div class="justify-content-center">
                     <div class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
