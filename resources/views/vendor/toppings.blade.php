@@ -18,21 +18,23 @@
                 <div class="row mt-4">
                     <div class="col-lg-6">
                         <label for="toppingName">Name</label>
-                        <input type="text" class="form-control" id="toppingName" name="toppingName" placeholder="Please enter name..."/>
+                        <input type="text" class="form-control" id="toppingName" name="toppingName" placeholder="Please enter name..." />
+                        <span class="invalid-feedback" id="error-toppingName" role="alert"></span>
                     </div>
                     <div class="col-lg-6">
                         <label for="toppingPrice">Price</label>
-                        <input type="text" class="form-control" id="toppingPrice" name="toppingPrice" placeholder="Please enter price..."/>
+                        <input type="text" class="form-control" id="toppingPrice" name="toppingPrice" placeholder="Please enter price..." />
+                        <span class="invalid-feedback" id="error-toppingPrice" role="alert"></span>
                     </div>
                 </div>
             </form>
             <div class="d-grid col-md-4  mx-auto my-2">
-                <button type="button" class="btn btn-outline-primary my-4" id="btnAddTopping" onclick="onclickAddTopping();">Add Topping</button>
+                <button type="button" class="btn btn-outline-primary my-4" id="btnCreateTopping" onclick="onclickCreateTopping();">Add Topping</button>
             </div>
         </div>
         <div class="col-12 mt-5 border rounded border-3">
             <div class="row">
-                <h3 class="text-weight-bold pt-3">Toppings</h3>
+                <h3 class="text-weight-bold py-3">Toppings</h3>
                 <div class="px-3">
                     <table class="table" id="tableToppings">
                         <thead>

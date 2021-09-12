@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Topping;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Validator;
 
 class ToppingController extends Controller
 {
@@ -15,21 +16,31 @@ class ToppingController extends Controller
         return view('vendor.toppings', compact('toppings'));
     }
 
-    // ADD A NEW TOPPING
-    public function addTopping(Request $request)
+    // CREATE A NEW TOPPING
+    public function createTopping(Request $request)
     {
         if($request->ajax()):
-            $topping = new Topping();
-            $topping->name = $request->toppingName;
-            $topping->price = $request->toppingPrice;
+            // Validate topping inputs
+            $toppingValidator = Validator::make($request->all(), [
+                'toppingName' => ['required', 'string'],
+                'toppingPrice' => ['required', 'integer', 'min:0']
+            ]);
 
-            if($topping->save()):
-                return response()->json(['status'=>'success']);
+            if($toppingValidator->fails()):
+                return response()->json(['errors'=>$toppingValidator->errors()]);
+            else:
+                $topping = new Topping();
+                $topping->name = $request->toppingName;
+                $topping->price = $request->toppingPrice;
+
+                if($topping->save()):
+                    return response()->json(['status'=>'success', 'topping'=>$topping]);
+                endif;
             endif;
         endif;
         return response()->json(['error'=>'error']);
     }
-    // /ADD A NEW TOPPING
+    // /CREATE A NEW TOPPING
 
     // GET TOPPINGS LIST
     public function getToppingsList(Request $request)
@@ -43,4 +54,14 @@ class ToppingController extends Controller
         endif;   
     }
     // /GET TOPPINGS LIST
+
+    // GET DETAILS OF TOPPING TO EDIT
+    // public function editToppingGetDetails(Request $request)
+    // {
+    //     if($request->ajax()):
+    //         $topping = Topping::find($request->id);
+    //         return response()->json(['topping'=>$topping]);
+    //     endif;
+    // }
+    // /GET DETAILS OF TOPPING TO EDIT 
 }
