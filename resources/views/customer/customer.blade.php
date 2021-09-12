@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-6 form-group mt-3">
                                 <label for="orderType" class="form-label">Order Type</label>
-                                <select name="orderType" id="orderType" class="form-control" onchange="onchange_order();">
+                                <select name="orderType" id="orderType" class="form-control" onchange="onchangeOrder();">
                                     <option disabled hidden selected>Please Select Your Order Type</option>
                                     <option value="1">Normal Ice Cream</option>
                                     <option value="2">Ice Cream with Toppings</option>
@@ -54,7 +54,7 @@
                         </div>
                     </form>
                     <div class="d-grid col-md-4 mx-auto my-4">
-                        <button type="button"  class="btn btn-outline-primary" id="btnPlaceOrder" onclick="onclick_place_order();">Place Order</button>
+                        <button type="button"  class="btn btn-outline-primary" id="btnPlaceOrder" onclick="onclickPlaceOrder();">Place Order</button>
                     </div>
                 </div>
             </div>
