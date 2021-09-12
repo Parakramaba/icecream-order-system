@@ -68,8 +68,16 @@ onclickPlaceOrder = () => {
                         $('#divToppings').hide();
 
                         // Fetch order details to order details card,then show
-                        $('#spanName').html(data['order']['first_name'] + ' ' + data['order']['last_name']);
+                        // Fill full name according to last name
+                        if(data['order']['last_name'] === null) {
+                            $('#spanName').html(data['order']['first_name']);
+                        }
+                        else {
+                            $('#spanName').html(data['order']['first_name'] + ' ' + data['order']['last_name']);
+                        }
+
                         $('#spanTel').html(data['order']['telephone']);
+                        // Fill relevent toppings details
                         if(data['order']['type'] == '1' && data['order']['toppings'] == null) {
                             $('#spanOrderType').html('Normal Ice Cream');
                             $('#trAddedToppings').hide();
