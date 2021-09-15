@@ -16,22 +16,22 @@
                     <h3 class="font-weight-bold text-center">Make Your Order</h3>
                     <form id="formOrder" class="border rounded border-3 p-4">
                         <div class="row">
-                            <div class="col-md-6 form-group mt-3">
+                            <div class="col-md-6 mt-3">
                                 <label for="firstName" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Please enter your first name..." />
                                 <span class="invalid-feedback" id="error-firstName" role="alert"></span>
                             </div>
-                            <div class="col-md-6 form-group mt-3">
+                            <div class="col-md-6 mt-3">
                                 <label for="lastName" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Please enter your last name..." />
                                 <span class="invalid-feedback" id="error-lastName" role="alert"></span>
                             </div>
-                            <div class="col-md-6 form-group mt-3">
+                            <div class="col-md-6 mt-3">
                                 <label for="telNo" class="form-label">Telephone Number</label>
                                 <input type="text" class="form-control" id="telNo" name="telNo" placeholder="ex: 718898123" />
                                 <span class="invalid-feedback" id="error-telNo" role="alert"></span>
                             </div>
-                            <div class="col-md-6 form-group mt-3">
+                            <div class="col-md-6 mt-3">
                                 <label for="orderType" class="form-label">Order Type</label>
                                 <select name="orderType" id="orderType" class="form-control" onchange="onchangeOrder();">
                                     <option disabled hidden selected>Please Select Your Order Type</option>
