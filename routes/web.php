@@ -25,7 +25,7 @@ Route::get('/vendor/home',[App\Http\Controllers\Vendor\HomeController::class, 'i
 Route::get('/vendor/toppings',[App\Http\Controllers\Vendor\ToppingController::class, 'index'])->name('vendor.toppings');
 Route::post('/vendor/toppings/add',[App\Http\Controllers\Vendor\ToppingController::class, 'createTopping'])->name('vendor.create.topping');
 Route::get('/vendor/toppings/table', [App\Http\Controllers\Vendor\ToppingController::class, 'getToppingsList'])->name('vendor.toppings.table');
-Route::post('/vendor/toppings/edit/details', [App\Http\Controllers\Vendor\ToppingController::class, 'editToppingGetDetails'])->name('vendor.topping.details');
+Route::post('/vendor/toppings/edit/details', [App\Http\Controllers\Vendor\ToppingController::class, 'editToppingGetDetails'])->name('vendor.edit.topping.details');
 // /Toppings Page
 
 // /VENDOR

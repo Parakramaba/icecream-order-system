@@ -22,16 +22,16 @@ class ToppingController extends Controller
         if($request->ajax()):
             // Validate topping inputs
             $toppingValidator = Validator::make($request->all(), [
-                'toppingName' => ['required', 'string'],
-                'toppingPrice' => ['required', 'integer', 'min:0']
+                'newToppingName' => ['required', 'string'],
+                'newToppingPrice' => ['required', 'integer', 'min:0']
             ]);
 
             if($toppingValidator->fails()):
                 return response()->json(['errors'=>$toppingValidator->errors()]);
             else:
                 $topping = new Topping();
-                $topping->name = $request->toppingName;
-                $topping->price = $request->toppingPrice;
+                $topping->name = $request->newToppingName;
+                $topping->price = $request->newToppingPrice;
 
                 if($topping->save()):
                     return response()->json(['status'=>'success', 'topping'=>$topping]);
@@ -56,12 +56,24 @@ class ToppingController extends Controller
     // /GET TOPPINGS LIST
 
     // GET DETAILS OF TOPPING TO EDIT
-    // public function editToppingGetDetails(Request $request)
-    // {
-    //     if($request->ajax()):
-    //         $topping = Topping::find($request->id);
-    //         return response()->json(['topping'=>$topping]);
-    //     endif;
-    // }
+    public function editToppingGetDetails(Request $request)
+    {
+        if($request->ajax()):
+            //Validate topping id
+            $toppingIdValidator = Validator::make($request->all(), [
+                'toppingId'=> ['required', 'integer', 'exists:toppings,id']
+            ]);
+
+            //Check validation errors
+            if($toppingIdValidator->fails()):
+                return response()->json(['status'=>'invalid_id']);
+            else:
+                if($topping = Topping::find($request->toppingId)):
+                    return response()->json(['status'=>'success', 'topping'=>$topping]);
+                endif;
+            endif;
+        endif;
+        return response()->json(['status'=>'error']);
+    }
     // /GET DETAILS OF TOPPING TO EDIT 
 }
