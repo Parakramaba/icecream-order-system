@@ -10,7 +10,7 @@
                     <form id="formEditTopping">
                         <div class="row">
                             <div class="col-12">
-                                <input type="hidden" class="form-control" id="toppingId" name="toppingId" disabled readonly />
+                                <input type="hidden" class="form-control" id="toppingId" name="toppingId" readonly />
                             </div>
                             <div class="col-lg-6">
                                 <label for="toppingName" class="form-label">Name</label>

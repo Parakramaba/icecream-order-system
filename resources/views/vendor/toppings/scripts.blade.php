@@ -150,4 +150,61 @@
         });
     }
     // /GET DETAILS OF TOPPING TO EDIT MODAL
+
+    // EDIT TOPPING
+    editTopping = () => {
+        //Remove previous validation error messages
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback').html('');
+        $('.invalid-feedback').hide();
+
+        //Form payload
+        let formData = new FormData($('#formEditTopping')[0]);
+
+        //Edit topping controller
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: "{{ route('vendor.edit.topping') }}",
+            type: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function() {$('#btnEditTopping').attr('disabled', 'disabled');},
+            success: function(data){
+                console.log('Success in edit topping ajax');
+                $('#btnEditTopping').removeAttr('disabled', 'disabled');
+                if(data['errors']) {
+                    console.log('Errors in validating topping details');
+                    $.each(data['errors'], function(key, value) {
+                        $('#error-'+key).show();
+                        $('#'+key).addClass('is-invalid');
+                        $('#error-'+key).append('<strong>'+value+'</strong>');
+                    });
+                }
+                else if(data['status'] === 'id_error') {
+                    console.log('Error in validating topping id');
+                    SwalInvalidIdError.fire();
+                }
+                else if(data['status'] === 'success') {
+                    console.log('Success in edit topping');
+                    SwalDoneSuccess.fire({
+                        title: 'Updated!',
+                        text: 'Topping details have been updated',
+                    })
+                    .then((result) => {
+                        if(result.isConfirmed) {
+                            location.reload();
+                        }
+                    });
+                }
+            },
+            error: function(err) {
+                console.log('Error in edit topping ajax');
+                $('#btnEditTopping').removeAttr('disabled', 'disabled');
+                SwalSystemError.fire();
+            }
+        });
+    }
+    // /EDIT TOPPING
+
 </script>

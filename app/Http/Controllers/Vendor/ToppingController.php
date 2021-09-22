@@ -76,4 +76,37 @@ class ToppingController extends Controller
         return response()->json(['status'=>'error']);
     }
     // /GET DETAILS OF TOPPING TO EDIT 
+
+    // EDIT TOPPING
+    public function editTopping(Request $request)
+    {
+        if($request->ajax()):
+            // Validate topping details
+            $editToppingValidator = Validator::make($request->all(), [
+                'toppingName' => ['required', 'string'],
+                'toppingPrice' => ['required', 'integer', 'min:0']
+            ]);
+
+            //Validate topping id
+            $toppingIdValidator = Validator::make($request->all(), [
+                'toppingId' => ['required', 'integer', 'exists:toppings,id']
+            ]);
+
+            //Check validation errors
+            if(isset($editToppingValidator) && $editToppingValidator->fails()):
+                return response()->json(['errors'=>$editToppingValidator->errors()]);
+            elseif(isset($toppingIdValidator) && $toppingIdValidator->fails()):
+                return response()->json(['status'=>'id_error']);
+            else:
+                //Update the topping details
+                if(Topping::where('id', $request->toppingId)->update([
+                    'name'=>$request->toppingName,
+                    'price'=>$request->toppingPrice
+                ])):
+                return response()->json(['status'=>'success']);
+                endif;
+            endif;
+        endif;
+    } 
+    // /EDIT TOPPING
 }
