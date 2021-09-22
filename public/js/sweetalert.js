@@ -1,10 +1,21 @@
 // SWEETALERT
+// QUESTION
+ const SwalQuestionDanger = Swal.mixin({
+     icon: 'question',
+     iconColor: color_danger,
+     confirmButtonColor: color_danger,
+     showCancelButton: true,
+     cancelButtonColor: color_primary,
+     allowOutsideClick: false,
+ })
+// /QUESTION
+
 // DONE
 const SwalDoneSuccess = Swal.mixin({
     icon: 'success',
     confirmButtonColor: color_success,
     allowOutsideClick: false,
-});
+})
 // /DONE
 
 // ERROR
@@ -35,17 +46,14 @@ const SwalInvalidIdError = Swal.mixin({
 // /ERROR
 
 // NOTIFICATION
-// const SwalNotificationWarningAutoClose = Swal.mixin({
-//     icon: 'warning',
-//     iconColor: color_warning,
-//     titleText: 'Id Not Found',
-//     text: 'Please refresh the page and try again. Still cannot proceed please contact the system administrator',
-//     showConfirmButton: false,
-//     toast: true,
-//     position: 'top-end',
-//     timer: 12000,
-//     timerProgressBar: true,
-// })
+const SwalNotificationWarningAutoClose = Swal.mixin({
+    icon: 'warning',
+    iconColor: color_warning,
+    showConfirmButton: false,
+    toast: true,
+    position: 'top-end',
+    timer: 6000,
+    timerProgressBar: true,
+})
 // /NOTIFICATION
-
 // /SWEETALERT
