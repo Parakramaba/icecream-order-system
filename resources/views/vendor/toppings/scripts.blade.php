@@ -1,10 +1,12 @@
 <script type="text/javascript">
 
     // CREATE TOPPINGS TABLE
+    let tableToppings = null;
+
     $(function(){
-        let tableToppings = $('#tableToppings').DataTable({
-            processiong: true,
-            severSide: true,
+        tableToppings = $('#tableToppings').DataTable({
+            processing: true,
+            serverSide: true,
             order: [0, "asc"],
             ajax : {
                 url: "{{ route('vendor.toppings.table') }}"
@@ -38,7 +40,7 @@
                     render: function(data, type, row) {
                         let btnGroup = '<div class="btn-group">'+
                                             '<button type="button" class="btn btn-outline-warning" id="btnInvokeEditToppingModal-'+data+'" onclick="invokeEditToppingModal('+data+');"><i class="fas fa-edit"></i></button>'+
-                                            '<button type="button" class="btn btn-outline-danger" id="btnDeleteTopping-'+data+'"><i class="fas fa-trash-alt"></i></button>'+
+                                            '<button type="button" class="btn btn-outline-danger" id="btnDeleteTopping-'+data+'" onclick="deleteTopping('+data+');"><i class="fas fa-trash-alt"></i></button>'+
                                         '</div>';
                             return btnGroup;
                     }
@@ -87,7 +89,7 @@
                     })
                     .then((result) => {
                         if(result.isConfirmed) {
-                            location.reload();
+                            tableToppings.draw();
                         }
                     });
                 }
@@ -193,7 +195,8 @@
                     })
                     .then((result) => {
                         if(result.isConfirmed) {
-                            location.reload();
+                            $('#modal-edit-topping').modal('hide');
+                            tableToppings.draw();
                         }
                     });
                 }
@@ -206,5 +209,64 @@
         });
     }
     // /EDIT TOPPING
+
+    // DELETE TOPPING
+    deleteTopping = (toppingId) => {
+        SwalQuestionDanger.fire({
+            title: 'Are you sure?',
+            text: 'You wont be able to revert this!',
+            confirmButtonText: 'Yes, Delete it!',
+        })
+        .then((result) => {
+            if(result.isConfirmed) {
+                //Form payload
+                let formData = new FormData();
+                formData.append('toppingId', toppingId);
+
+                //Delete topping controller
+                $.ajax({
+                    headers: {'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')},
+                    url: "{{ route('vendor.delete.topping') }}",
+                    type: 'post',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {$('#btnDeleteTopping-'+toppingId).attr('disabled', 'disabled');},
+                    success: function(data) {
+                        console.log('Success in delete topping ajax');
+                        $('#btnDeleteTopping-'+toppingId).removeAttr('disabled', 'disabled');
+                        if(data['status'] === 'id_error') {
+                            console.log('Error in validating topping id');
+                            SwalInvalidIdError.fire();
+                        }
+                        else if(data['status'] === 'success'){
+                            console.log('Success in delete topping');
+                            SwalDoneSuccess.fire({
+                                title: 'Deleted!',
+                                text: 'Topping has been deleted',
+                            })
+                            .then((result2) => {
+                                if(result2.isConfirmed) {
+                                    tableToppings.draw();
+                                }
+                            });
+                        }
+                    },
+                    error: function(err) {
+                        console.log('Error in delete topping ajax');
+                        $('#btnDeleteTopping-'+toppingId).removeAttr('disabled', 'disabled');
+                        SwalSystemError.fire();
+                    }
+                });
+            }
+            else {
+                SwalNotificationWarningAutoClose.fire({
+                    title: 'Cancelled!',
+                    text: 'Topping has not been deleted',
+                })
+            }
+        });
+    }
+    // /DELETE TOPPING
 
 </script>

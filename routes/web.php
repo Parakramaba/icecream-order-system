@@ -27,6 +27,7 @@ Route::post('/vendor/toppings/add',[App\Http\Controllers\Vendor\ToppingControlle
 Route::get('/vendor/toppings/table', [App\Http\Controllers\Vendor\ToppingController::class, 'getToppingsList'])->name('vendor.toppings.table');
 Route::post('/vendor/toppings/edit/details', [App\Http\Controllers\Vendor\ToppingController::class, 'editToppingGetDetails'])->name('vendor.edit.topping.details');
 Route::post('/vendor/toppings/edit', [App\Http\Controllers\Vendor\ToppingController::class, 'editTopping'])->name('vendor.edit.topping');
+Route::post('/vendor/toppings/delete', [App\Http\Controllers\Vendor\ToppingController::class, 'deleteTopping'])->name('vendor.delete.topping');
 // /Toppings Page
 
 // /VENDOR

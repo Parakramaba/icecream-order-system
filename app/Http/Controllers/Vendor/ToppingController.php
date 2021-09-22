@@ -109,4 +109,27 @@ class ToppingController extends Controller
         endif;
     } 
     // /EDIT TOPPING
+
+    // DELETE TOPPING
+    public function deleteTopping(Request $request)
+    {
+        if($request->ajax()):
+            // Validate topping id
+            $toppingIdValidator = Validator::make($request->all(), [
+                'toppingId' => ['required', 'integer', 'exists:toppings,id']
+            ]);
+
+            //Check validation fails
+            if($toppingIdValidator->fails()):
+                return response()->json(['status'=>'id_error']);
+            else:
+                //Delete the topping
+                if(Topping::destroy($request->toppingId)):
+                    return response()->json(['status'=>'success']);
+                endif;
+            endif;
+        endif;
+        return response()->json(['status'=>'error']);
+    }
+    // /DELETE TOPPING
 }
